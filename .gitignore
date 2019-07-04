@@ -1,0 +1,5 @@
+/target/
+
+/.idea
+/src/test/resources/
+README.md
