@@ -1,3 +1,4 @@
+import com.applitools.eyes.MatchLevel;
 import com.applitools.eyes.selenium.Eyes;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.AfterClass;
@@ -36,7 +37,7 @@ public class BaseTests {
     @AfterClass
     public static void tearDown() {
         driver.quit();
-        eyes.abort();
+        eyes.abort(); // command serves as a backup plan just in case a test does not shut down the session properly
     }
 
     private static void initiateEyes() {
@@ -45,9 +46,13 @@ public class BaseTests {
     }
 
     public void validateWindow() {
+        // lets Eyes know that you are ready to begin visual checks
         eyes.open(driver, "Automation Bookstore",
                 Thread.currentThread().getStackTrace()[2].getMethodName());
-        eyes.checkWindow();
-        eyes.close();
+//        eyes.setMatchLevel(MatchLevel.EXACT); // pixel by pixel comparison of the images. It's highly flaky and unreliable.
+//        eyes.setMatchLevel(MatchLevel.STRICT); // by default. Using AI to compare the images and only detect things that the human eye would
+        eyes.setMatchLevel(MatchLevel.CONTENT); // similar to this Strict match level except that it also ignores color differences
+        eyes.checkWindow(); // instructs Eyes to take a screenshot of the current page
+        eyes.close(); // instructs Eyes to aggregate all visual checks and end the session
     }
 }
