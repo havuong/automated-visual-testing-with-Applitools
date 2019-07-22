@@ -1,6 +1,7 @@
 import base.BaseTests;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import pages.SearchPage;
 
 public class SearchTests extends BaseTests {
@@ -16,5 +17,11 @@ public class SearchTests extends BaseTests {
         String title = "Agile Testing";
         page.search(title);
         eyesManager.validateWindow();
+    }
+
+    @Test
+    public void testSearchByFullTitle_Element(){
+        page.search("Agile Testing");
+        eyesManager.validateElement(By.id("pid3"));
     }
 }

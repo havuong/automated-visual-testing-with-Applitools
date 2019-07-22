@@ -1,6 +1,7 @@
 package base;
 
 import com.applitools.eyes.selenium.Eyes;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class EyesManager {
@@ -24,6 +25,12 @@ public class EyesManager {
 //        eyes.setMatchLevel(MatchLevel.CONTENT); // similar to this Strict match level except that it also ignores color differences
         eyes.checkWindow(); // instructs Eyes to take a screenshot of the current page
         eyes.close(); // instructs Eyes to aggregate all visual checks and end the session
+    }
+
+    public void validateElement(By locator) {
+        eyes.open(driver, appName, Thread.currentThread().getStackTrace()[2].getMethodName());
+        eyes.checkElement(locator);
+        eyes.close();
     }
 
     public void abort() {
