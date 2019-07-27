@@ -30,6 +30,13 @@ public class EyesManager {
     public void validateElement(By locator) {
         eyes.open(driver, appName, Thread.currentThread().getStackTrace()[2].getMethodName());
         eyes.checkElement(locator);
+//        eyes.checkRegion(locator); // specifying the coordinates of the region, also accepts WebElement and By locators
+        eyes.close();
+    }
+
+    public void validateFrame(String locator) {
+        eyes.open(driver, appName, Thread.currentThread().getStackTrace()[2].getMethodName());
+        eyes.checkFrame(locator);
         eyes.close();
     }
 

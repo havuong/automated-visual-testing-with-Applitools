@@ -1,5 +1,4 @@
-package base;
-
+import base.BaseTests;
 import org.junit.Test;
 
 public class ScrollTests extends BaseTests {
