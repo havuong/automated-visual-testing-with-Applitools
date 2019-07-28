@@ -1,5 +1,6 @@
 package base;
 
+import com.applitools.eyes.BatchInfo;
 import com.applitools.eyes.selenium.Eyes;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,6 +16,14 @@ public class EyesManager {
 
         eyes = new Eyes();
         eyes.setApiKey(System.getProperty("applitools.api.key"));
+    }
+
+    public void setBatchName(String batchName){
+        eyes.setBatch(new BatchInfo(batchName));
+    }
+
+    public void setTestGroup(String group){
+        eyes.addProperty("Test Group", group);
     }
 
     public void validateWindow() {
