@@ -1,7 +1,5 @@
-# Automated Visual Testing
+# Automated Visual Testing with [Applitools](https://applitools.com/)
 Learn how to effectively add visual validation to existing test automation framework using the Applitools Eyes test automation API. Applitools allows to add eyes to your test automation. The eyes are powered by artificial intelligence and will catch the visual errors just as a human being would.
-
-We'll see how this AI-driven approach to visual testing is superior to pixel to pixel image comparison.
 
 ## What is visual validation
 Visual Software Testing is the process of validating the visual aspects of an application's User Interface (UI). In addition to validating that the UI displays the correct content or data, Visual Testing focuses on validating the Layout and Appearance of each visual element of the UI and of the UI as a whole. Layout correctness means that each visual element of the UI is properly positioned on the screen, that it is of the right shape and size, and that it does not overlap or hide other visual elements. Appearance correctness means that the visual elements are of the correct font, color, or image. 
@@ -50,7 +48,7 @@ driver.findElement(By.tagName("button")).click(); // Click the button.
 eyes.checkWindow("After mouse click"); 
 ```
 
-## Different levels of image comparison and when it's best to use each
+## Different levels of image comparison
 Applitools Eyes is a very flexible visual validation tool. It recognizes that not all applications are the same and therefore provides various comparison methods so that you have the right level of image matching for your testing. These comparison options are called match levels.
 
 ### Exact Match Level
